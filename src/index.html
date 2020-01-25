@@ -4,47 +4,73 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Github Search</title>
   <script defer src="main.js"></script>
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <style type="text/css">
+    body {
+       display: flex;
+       min-height: 100vh;
+       flex-direction: column;
+    }
+    main {
+      flex: 1; 
+    }
+</style>
 </head>
-<body class="bg-gray-100">
-  <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
-    <div class="flex items-center flex-shrink-0 text-white mr-6">
-      <span class="font-semibold text-xl tracking-tight">Github Search</span>
-    </div>
-
-    <form class="w-full max-w-sm" id="search">
-      <div class="md:flex md:items-center">
-        <div class="md:w-1/3">
-          <label class="block text-gray-400 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
-            search
-          </label>
+<body class="bg-gray-100 lex flex-col min-h-screen">
+  <header>
+    <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+      <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <span class="font-semibold text-xl tracking-tight">Github Search</span>
+      </div>
+  
+      <form class="w-full max-w-sm" id="search">
+        <div class="md:flex md:items-center">
+          <div class="md:w-1/3">
+            <label class="block text-gray-400 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+              search
+            </label>
+          </div>
+          <div class="md:w-2/3">
+            <input id="query" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="reopsitory">
+          </div>
         </div>
-        <div class="md:w-2/3">
-          <input id="query" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="Vue">
+      </form>
+    </nav>
+  </header>
+
+  <main class="flex-grow p-3">
+   <div class="container mx-auto mb-5">
+
+      <div class="flex justify-center border-solid border-4 border-gray-500 p-5 rounded-lg mb-1" id="nav-message">
+        <p class="text-gray-500 nav-text" >検索ボックスにご入力ください。</p>
+      </div>
+
+      <!-- SearchResult -->
+       <div id="result">
+           <ul></ul>
+        </div>
+
+        <!-- Error message -->
+      <div class=" justify-center flex mb-3">
+        <div  id="error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative hidden" role="alert">
+          <span class="block sm:inline" id="error-message" ></span>
         </div>
       </div>
-    </form>
-  </nav>
 
+      <div class="mx-auto text-center">
+           <button id="more" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full hidden">More</button>
+      </div>
 
-
-  <div class="container mx-auto">
-  <div  id="error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative hidden" role="alert">
-    <span class="block sm:inline" id="error-message" ></span>
-  </div>
-
-   <div id="result">
-  <div id="error" class="p-5 text-red-500 border border-red-500 rounded-lg hidden"></div>
-       <ul></ul>
-
-     <div class="mx-auto text-center">
-       <span id="page"></span>
-       <button id="more" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full hidden">More</button>
-     </div>
     </div>
-  </div>
+  </main>
+
+  <footer>
+    <div class="flex justify-center border-t-2 p-5">
+      <address class="text-gray-400 text-center">&copy; it will rain</address>
+    </div>
+  </footer>
 </body>
 </html>

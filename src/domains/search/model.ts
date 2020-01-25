@@ -56,6 +56,7 @@ export default class SearchModel extends EventDispatcher {
     try {
       this.init();
       if (!this.query) return;
+
       const { data } = await axios.get(
         `${BASE_URL}?q=${this.query}&sort=stars&order=desc&?&per_page=${this.perPage}&page=${this.nextPage}`
       );
@@ -82,6 +83,7 @@ export default class SearchModel extends EventDispatcher {
 
   async addMore(): Promise<void> {
     try {
+      if (!this.query) return;
       const { data } = await axios.get(
         `${BASE_URL}?q=${this.query}&sort=stars&order=desc&?&per_page=${this.perPage}&page=${this.nextPage}`
       );
@@ -98,8 +100,8 @@ export default class SearchModel extends EventDispatcher {
     if (e.config && e.response && e.response.status === 403) {
       this.errorMessage =
         "API 取得の上限に達しました。しばらくたってから再度おためしください";
-    } else if (e.config && e.response && e.response.status) {
-      this.errorMessage = e.response.data.message;
+    } else if (e.config && e.response && e.response.status === 422) {
+      this.errorMessage = "不正な文字列です";
     } else if (e.config && e.response && e.response.status) {
       this.errorMessage = e.response.data.message;
     } else {
