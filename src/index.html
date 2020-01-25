@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script defer src="main.js"></script>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+  <div class="container mx-auto">
+   <div id="search">
+   <dl>
+    <dt>  <h1>search</h1></dt>
+    <dd>
+    <form name="search-repositories">
+       <input id="query" type="text" placeholder="検索ワード">
+     </form>
+     </dd>
+   </dl>
+    </div>
+    <div id="result">
+      <div id="error" class="p-5 text-red-500 border border-red-500 rounded-lg hidden"></div>
+     <ul></ul>
+     <div class="mx-auto text-center">
+     <button id="more" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">More</button>
+     </div>
+     
+    </div>
+  </div>
+</body>
+</html>
