@@ -12,23 +12,28 @@
 <body class="bg-gray-100">
 
   <div class="container mx-auto">
-   <div id="search">
+   <div id="search" class="mb-5">
    <dl>
-    <dt>  <h1>search</h1></dt>
+    <dt><h1>search</h1></dt>
     <dd>
-    <form name="search-repositories">
-       <input id="query" type="text" placeholder="検索ワード">
-     </form>
+        <input id="query" type="text" placeholder="検索ワード">
      </dd>
    </dl>
-    </div>
-    <div id="result">
-      <div id="error" class="p-5 text-red-500 border border-red-500 rounded-lg hidden"></div>
-     <ul></ul>
+  </div>
+
+  <div  id="error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative hidden" role="alert">
+    <span class="block sm:inline" id="error-message" ></span>
+
+  </div>
+
+   <div id="result">
+  <div id="error" class="p-5 text-red-500 border border-red-500 rounded-lg hidden"></div>
+       <ul></ul>
+
      <div class="mx-auto text-center">
-     <button id="more" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">More</button>
+       <span id="page"></span>
+       <button id="more" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full hidden">More</button>
      </div>
-     
     </div>
   </div>
 </body>

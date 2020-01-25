@@ -1,16 +1,61 @@
- {
+{
   "compilerOptions": {
-      "allowJs": true,
-      "allowSyntheticDefaultImports": true,
-      "sourceMap": true,
-      "moduleResolution": "node",
-      "target": "esnext",
-      "module": "commonjs",
-      "strict": true
+    "target": "ES2017",
+    "module": "es2015",
+    "baseUrl": ".",
+    "paths": { "@/*": ["src/*"] },
+    "outDir": "./dist/",
+    "removeComments": true,
+    "strict": true,
+    "allowJs": true,
+    "noImplicitAny": true,
+    "moduleResolution": "node" ,
+    "esModuleInterop": true
   },
+
+  
   "include": ["src/**/*"],
-  "exclude": [
-      "node_modules",
-      "**/*.test.ts"
-  ]
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
+
+//  {
+//   "compilerOptions": {
+//       "allowJs": true,
+//       "allowSyntheticDefaultImports": true,
+//       "sourceMap": true,
+//       "moduleResolution": "node",
+//       "target": "esnext",
+//       "module": "commonjs",
+//       "strict": true
+//   },
+//   "include": ["src/**/*"],
+//   "exclude": [
+//       "node_modules",
+//       "**/*.test.ts"
+//   ]
+// }
+
+// {
+//     "compilerOptions": {
+//       "target": "ES2017",
+//       "module": "es2015",
+//       "baseUrl": ".",
+//       "paths": { "@/*": ["src/*"] },
+//       "outDir": "./dist/",
+//       "removeComments": true,
+//       "strict": true,
+//       "noImplicitAny": true,
+//       "strictNullChecks": true,
+//       "strictFunctionTypes": true,
+//       "strictPropertyInitialization": true,
+//       "noImplicitThis": true,
+//       "noUnusedLocals": true,
+//       "moduleResolution": "node" ,
+//       "noUnusedParameters": true,
+//       "noImplicitReturns": true,
+//       "noFallthroughCasesInSwitch": true,
+//       "esModuleInterop": true
+//     },
+//     "include": ["src/**/*"],
+//     "exclude": ["node_modules", "**/*.spec.ts"]
+//   }
