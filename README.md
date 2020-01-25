@@ -1,5 +1,12 @@
 # 環境構築
+
 ```
-yarn #install node_modules
+#install node_modules
+yarn
+
+#local serverで起動
 yarn  dev
+
+#production build
+yarn build
 ```
