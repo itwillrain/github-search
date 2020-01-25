@@ -10,20 +10,30 @@
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
+  <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+      <span class="font-semibold text-xl tracking-tight">Github Search</span>
+    </div>
+
+    <form class="w-full max-w-sm" id="search">
+      <div class="md:flex md:items-center">
+        <div class="md:w-1/3">
+          <label class="block text-gray-400 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+            search
+          </label>
+        </div>
+        <div class="md:w-2/3">
+          <input id="query" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="Vue">
+        </div>
+      </div>
+    </form>
+  </nav>
+
+
 
   <div class="container mx-auto">
-   <div id="search" class="mb-5">
-   <dl>
-    <dt><h1>search</h1></dt>
-    <dd>
-        <input id="query" type="text" placeholder="検索ワード">
-     </dd>
-   </dl>
-  </div>
-
   <div  id="error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative hidden" role="alert">
     <span class="block sm:inline" id="error-message" ></span>
-
   </div>
 
    <div id="result">

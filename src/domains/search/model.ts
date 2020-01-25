@@ -49,7 +49,7 @@ export default class SearchModel extends EventDispatcher {
     this.repositories = [];
     this.totalCount = 0;
     this.nextPage = 1;
-    this.perPage = 10;
+    this.perPage = 6;
   }
 
   async searchGithub(): Promise<void> {
