@@ -49,7 +49,6 @@ export default class SearchModel extends EventDispatcher {
     this.repositories = [];
     this.totalCount = 0;
     this.nextPage = 1;
-    this.perPage = 6;
   }
 
   async searchGithub(): Promise<void> {
@@ -98,7 +97,7 @@ export default class SearchModel extends EventDispatcher {
 
   handleError(e: any): void {
     if (e.config && e.response && e.response.status === 403) {
-      this.errorMessage = 'API 取得の上限に達しました。しばらくたってから再度おためしください';
+      this.errorMessage = 'API 取得の上限に達しました。しばらくたってから再度おためしください。';
     } else if (e.config && e.response && e.response.status === 422) {
       this.errorMessage = '不正な文字列です';
     } else if (e.config && e.response && e.response.status) {
