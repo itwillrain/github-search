@@ -1,8 +1,8 @@
-import axios from "axios";
-import EventDispatcher from "../eventDispatcher";
-import { formatDescription } from "../util";
+import axios from 'axios';
+import EventDispatcher from '../eventDispatcher';
+import { formatDescription } from '../util';
 
-const BASE_URL = "https://api.github.com/search/repositories";
+const BASE_URL = 'https://api.github.com/search/repositories';
 
 export default class SearchModel extends EventDispatcher {
   public repositories: Repository[];
@@ -19,12 +19,12 @@ export default class SearchModel extends EventDispatcher {
 
   constructor() {
     super();
-    this.query = "";
+    this.query = '';
     this.repositories = [];
     this.totalCount = 0;
     this.nextPage = 1;
     this.perPage = 10;
-    this.errorMessage = "";
+    this.errorMessage = '';
   }
 
   setQuery(query: string): void {
@@ -69,15 +69,15 @@ export default class SearchModel extends EventDispatcher {
         name: item.name,
         description: formatDescription(item.description),
         owner: {
-          avatar_url: item.owner.avatar_url
-        }
+          avatar_url: item.owner.avatar_url,
+        },
       }));
       this.totalCount = data.total_count;
       this.pageIncrement();
-      this.dispatchEvent({ type: "success", task: this.query });
+      this.dispatchEvent({ type: 'success', task: this.query });
     } catch (e) {
       this.handleError(e);
-      this.dispatchEvent({ type: "fail" });
+      this.dispatchEvent({ type: 'fail' });
     }
   }
 
@@ -89,23 +89,22 @@ export default class SearchModel extends EventDispatcher {
       );
       this.pageIncrement();
       this.repositories = [...this.repositories, ...data.items];
-      this.dispatchEvent({ type: "success", task: this.query });
+      this.dispatchEvent({ type: 'success', task: this.query });
     } catch (e) {
       this.handleError(e);
-      this.dispatchEvent({ type: "fail" });
+      this.dispatchEvent({ type: 'fail' });
     }
   }
 
   handleError(e: any): void {
     if (e.config && e.response && e.response.status === 403) {
-      this.errorMessage =
-        "API 取得の上限に達しました。しばらくたってから再度おためしください";
+      this.errorMessage = 'API 取得の上限に達しました。しばらくたってから再度おためしください';
     } else if (e.config && e.response && e.response.status === 422) {
-      this.errorMessage = "不正な文字列です";
+      this.errorMessage = '不正な文字列です';
     } else if (e.config && e.response && e.response.status) {
       this.errorMessage = e.response.data.message;
     } else {
-      this.errorMessage = "エラーが発生しました。";
+      this.errorMessage = 'エラーが発生しました。';
     }
   }
 }

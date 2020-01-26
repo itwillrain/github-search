@@ -14,7 +14,7 @@ export default class EventDispatcher {
     if (!this.observers[type]) {
       this.observers[type] = [];
     }
-    console.log("addEventLisener", { type }, { callback });
+    console.log('addEventLisener', { type }, { callback });
     this.observers[type].push(callback);
   }
 

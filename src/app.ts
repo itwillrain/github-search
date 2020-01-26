@@ -1,5 +1,5 @@
-import SearchModel from "./domains/search/model";
-import SearchView from "./domains/search/view";
+import SearchModel from './domains/search/model';
+import SearchView from './domains/search/view';
 
 class App {
   constructor() {
